@@ -1,4 +1,8 @@
 /* tables */
+.yes {background:green;}
+.maybe {background:yellow;}
+.no {background:red;}
+
 table.tablesorter {
 	font-family:Helvetica, Verdana;
 	background-color: #CDCDCD;

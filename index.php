@@ -1,9 +1,3 @@
-<style>
-.yes {background:green;}
-.maybe {background:yellow;}
-.no {background:red;}
-</style>
-
 <?php
 $allUsers = Array();
 
@@ -23,7 +17,7 @@ $width = 100 / (count($groups) + 1);
 echo "<table id='myTable' class='tablesorter' style='width:100%;'>";
 echo "<thead><tr><th>";
 foreach ($groups as $group => $value)
-    echo "<td  width='$width%'>$group</td>";
+    echo "<td width='$width%'>$group</td>";
 echo "</th></tr>";
 echo "<tbody>";
 foreach ($allUsers as $allUser => $n){
