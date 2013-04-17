@@ -1,5 +1,6 @@
 <style>
 .yes {background:green;}
+.maybe {background:yellow;}
 .no {background:red;}
 </style>
 
@@ -11,7 +12,7 @@ exec('grep -v :$ /etc/group', $lines);
 foreach ($lines as $key => $line) {
     $temp = explode(':', $line);
     $users = explode(',', $temp[3]);
-    foreach($users as $user){
+    foreach ($users as $user){
         $allUsers[$user] = true;
         $groups[$temp[0]][$user] = true;
     }
@@ -26,10 +27,13 @@ foreach ($allUsers as $allUser => $n){
     echo "<tr>";
     echo "<td>$allUser</td>";
     foreach ($groups as $group => $users)
-        if( $users[$allUser])
+        if ($users[$allUser])
             echo "<td class='yes'></td>";
         else
-            echo "<td class='no'></td>";
+            if (array_key_exists($allUser, $groups['sudo']))
+                echo "<td class='maybe'></td>";
+            else
+                echo "<td class='no'></td>";
     echo "</tr>";
 }
 echo "</table>";
